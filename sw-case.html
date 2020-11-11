@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    Check brower :
+    <input type="text" id="bai1" spaceholder="brower name" onchange="bai1();">
+    <p id="bai1output"></p>
+
+    Check 0,1,2/3 :
+    <input type="text" id="bai2" spaceholder="a number" onchange="bai2();">
+    <p id="bai2output"></p>
+
+    Check compare to 0 :
+    <input type="text" id="bai3" spaceholder="a number" onchange="bai3();">
+    <p id="bai3output"></p>
+</div>
+<script>
+    function bai1() {
+        let brower = document.getElementById("bai1").value;
+        let message;
+        switch (brower) {
+            case 'Edge':
+                message = "you have got the Edge";
+                break;
+            case 'Chrome':
+            case 'Firefox':
+            case 'Safari':
+            case 'Opera':
+                message = "okay we support these browers too";
+                break;
+            default:
+                message = "we hope that this web looks OK !";
+        }
+        document.getElementById(bai1output).innerHTML = message;
+    }
+    function bai2() {
+        let number = document.getElementById("bai2").value;
+        let message;
+        switch (number) {
+            case '0':
+            case '1':
+                message = number;
+                break;
+            case '2':
+            case '3':
+                message = '2,3';
+                break;
+        }
+        document.getElementById('bai2output').innerHTML = message;
+    }
+    function bai3() {
+        let number = +document.getElementById("bai3").value;
+        let message;
+        let foo = number >= 0;
+        let foo_ = number == 0;
+
+        switch (foo) {
+            case true: {
+                switch (foo_) {
+                    case true:
+                        message = 0;
+                        break;
+                    case false:
+                        message = 1;
+                        break;
+                }
+                break;
+            }
+            case false:
+                message = -1;
+                break;
+        }
+        document.getElementById("bai3output").innerHTML = message;
+    }
+
+</script>
+</body>
+</html>
